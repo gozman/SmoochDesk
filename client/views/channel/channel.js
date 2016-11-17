@@ -112,8 +112,34 @@ Template.messageForm.events({
       email: user.emails[0].address,
       actions: [{"type": "link", "text": "Google", "uri": "http://google.com"},
                 {"type": "link", "text": "Facebook", "uri": "http://facebook.com"},
-                {"type": "link", "text": "Twitter", "uri": "http://twitter.com"},
                 {"type": "link", "text": "Smooch", "uri": "http://smooch.io"},
+               ],
+
+    }, (err, res) => {
+      if (err) {
+        alert(err);
+      } else {
+        // success!
+      }
+    });
+  },
+  'click button.btn_postback': function(event, instance) {
+    event.preventDefault();
+    console.log("Sending postback...");
+
+    var _id = Router.current().params._id;
+    var chan = Channels.findOne({_id: _id});
+    var user = Meteor.user();
+
+    Meteor.call('sendMessage', {
+      msg: "Here are some postbacks:",
+      destUserId: chan.userId,
+      role: "appMaker",
+      name: user.username,
+      email: user.emails[0].address,
+      actions: [{"type": "postback", "text": "Option A", "payload": "AAA"},
+                {"type": "postback", "text": "Option B", "payload": "BBB"},
+                {"type": "postback", "text": "Option C", "payload": "CCC"},
                ],
 
     }, (err, res) => {
@@ -210,4 +236,37 @@ Template.messageForm.events({
       }
     });
   },
+  'click button.btn_quickreply': function(event, instance) {
+      event.preventDefault();
+      console.log("Sending link...");
+
+      var _id = Router.current().params._id;
+      var chan = Channels.findOne({_id: _id});
+      var user = Meteor.user();
+
+      Meteor.call('sendMessage', {
+        msg: "What do you want to eat for dinner?",
+        destUserId: chan.userId,
+        role: "appMaker",
+        name: user.username,
+        email: user.emails[0].address,
+        actions: [{
+                    "type": "reply",
+                    "text": "Tacos",
+                    "iconUrl": "https://cdn.shopify.com/s/files/1/1061/1924/files/Taco_Emoji.png?9898922749706957214",
+                    "payload": "TACOS"
+                  }, {
+                    "type": "reply",
+                    "text": "Burritos",
+                    "iconUrl": "http://pix.iemoji.com/images/emoji/apple/ios-9/256/burrito.png",
+                    "payload": "BURRITOS"
+                  }]
+      }, (err, res) => {
+        if (err) {
+          alert(err);
+        } else {
+          // success!
+        }
+      });
+    }
 });
