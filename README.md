@@ -1,4 +1,4 @@
-# SmoochApiSampler
+# SmoochDesk
 
 A sample business system built with Meteor and the Smooch API.
 
