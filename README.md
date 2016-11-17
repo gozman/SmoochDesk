@@ -2,6 +2,19 @@
 
 A sample business system built with Meteor and the Smooch API.
 
+## How do you run this?
+
+1. Install meteor
+
+curl https://install.meteor.com/ | sh
+
+2. Clone this thing
+
+git clone https://github.com/gozman/SmoochDesk.git
+
+3. Run it:
+
+meteor run
 
 ## Based on Meteor Slack
 
