@@ -12,7 +12,15 @@ curl https://install.meteor.com/ | sh
 
 git clone https://github.com/gozman/SmoochDesk.git
 
-3. Run it:
+3. Configure a webhook:
+
+Configure a Smooch webhook to send appUser messages to your smoochDesk app at the "/hook" route
+
+4. Configure your secret keys
+
+In _sever/messages.js_ add your Smooch keyId and secret
+
+5. Run it:
 
 meteor run
 
