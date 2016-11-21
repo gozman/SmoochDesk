@@ -6,23 +6,23 @@ A sample business system built with Meteor and the Smooch API.
 
 1. Install meteor
 
-curl https://install.meteor.com/ | sh
+  `curl https://install.meteor.com/ | sh`
 
 2. Clone this thing
 
-git clone https://github.com/gozman/SmoochDesk.git
+  `git clone https://github.com/gozman/SmoochDesk.git`
 
 3. Configure a webhook:
 
-Configure a Smooch webhook to send appUser messages to your smoochDesk app at the "/hook" route
+  Configure a Smooch webhook to send appUser messages to your smoochDesk app at the "/hook" route
 
 4. Configure your secret keys
 
-In _sever/messages.js_ add your Smooch keyId and secret
+  In _sever/messages.js_ add your Smooch keyId and secret
 
 5. Run it:
 
-meteor run
+  `meteor run`
 
 ## Based on Meteor Slack
 
