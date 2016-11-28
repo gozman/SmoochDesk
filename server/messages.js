@@ -2,9 +2,9 @@ var smooch = require('smooch-core');
 //import { smooch } from 'smooch-core';
 
 var SmoochBase = new smooch({
-  keyId: 'app_582d3ffb5e1e583300447d8c',
-  secret: 'NGKMzMLhmsP3VxRr33mVHpMa',
-  scope: 'app', // app or appUser
+  keyId: Meteor.settings.smoochKeyId,
+  secret: Meteor.settings.smoochSecret,
+  scope: 'app',
 })
 
 Meteor.methods({
